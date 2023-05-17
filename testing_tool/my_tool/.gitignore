@@ -1,0 +1,13 @@
+reverse_API/data/*
+reverse_API/vision_src/_cache/*
+reverse_API/vision_src/text/*
+reverse_API/vision_src/object_detection
+reverse_API/speech_src/_cache/*
+reverse_API/language_src/sentiment140/*.csv
+reverse_API/language_src/_cache/*
+code_extraction/test_apps/*
+code_extraction/profile.txt
+alternative_designs/*
+testing_logs/*
+*crash-*
+*timeout-*
