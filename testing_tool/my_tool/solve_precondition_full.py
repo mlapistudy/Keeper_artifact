@@ -1,7 +1,6 @@
 import os
 import sys
 import logging
-import traceback
 import operator
 from optparse import OptionParser
 import math
