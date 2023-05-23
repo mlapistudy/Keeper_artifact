@@ -532,7 +532,9 @@ def check_log(constraint_file, test_file, log_file, param_list, line_map):
         # acc_bug["fix_suggestion"] = "* If you add [%s] inside this branch, your program will be able to better differentiate positive text from negative text --- only %2.f%% of the positive text will be mixed with negative text now, an improvement from %2.f%% in your original program." % (rule, (1-accuracy)*senti_count[0][i]*100/sum(senti_count[0]), senti_count[0][i]*100/sum(senti_count[0]))
         rule, acc1, acc2 = sentiment_suggestion.sentiment_classifier(pos_text, neg_text)
         acc_bug["description"] = "Your program suffers from accuracy problems: it fails to differentiate text inputs with positive sentiment from those with negative sentiment on this line. %2.f%% of positive text inputs and %2.f%% of negative inputs fulfill this predicate." % (100*senti_count[0][i]/sum(senti_count[0]), 100*senti_count[1][i]/sum(senti_count[1]))
-        acc_bug["fix_suggestion"] = "* Formula [%s] could be used to differentiate positive text from negative text --- Now, %2.f%% of positive text inputs and %2.f%% of negative inputs fulfill this predicate." % (rule, acc1*senti_count[0][i]*100/sum(senti_count[0]), (1-acc2)*senti_count[1][i]*100/sum(senti_count[1]))
+        overall_acc = (acc1*len(pos_text) + acc2*len(neg_text)) / (len(pos_text)+len(neg_text))
+        if overall_acc>ACCURACY_THRESHOLD:
+            acc_bug["fix_suggestion"] = "* Formula [%s] could be used to differentiate positive text from negative text --- Now, %2.f%% of positive text inputs and %2.f%% of negative inputs fulfill this predicate." % (rule, acc1*senti_count[0][i]*100/sum(senti_count[0]), (1-acc2)*senti_count[1][i]*100/sum(senti_count[1]))
         
         for j in range(2):
           if all_keys[i] in behavior[j].keys():

@@ -58,8 +58,8 @@ def sentiment_classifier(pos_text, neg_text):
   
   pos_sentences = [turn_class(x) for x in pos_text]
   neg_sentences = [turn_class(x) for x in neg_text]
-  rule, accuracy = classifier_logic(pos_sentences, neg_sentences)
-  return rule, accuracy
+  rule, accuracy1, accuracy2 = classifier_logic(pos_sentences, neg_sentences)
+  return rule, accuracy1, accuracy2
 
 if __name__ == "__main__":
   pass
