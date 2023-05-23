@@ -92,7 +92,8 @@ def read_csv(input_file):
 
 
 if __name__ == "__main__":
+  pass
   # download_sentiment140()
-  process_sentiment140("language_src/sentiment140/training.csv", "language_src/sentiment140.csv", 5000)
+  # process_sentiment140("language_src/sentiment140/training.csv", "language_src/sentiment140.csv", 5000)
   # csv("language_src/sentiment140.csv")
   

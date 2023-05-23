@@ -7,14 +7,13 @@ import subprocess
 import time as time
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-DATA_SRC = os.path.join(dir_path, "language_src", "sentiment_data.csv")
 SENTIMENT_SRC = os.path.join(dir_path, "language_src", "sentiment140.csv")
 SENTIMENT_RAW_SRC = os.path.join(dir_path, "language_src", "sentiment140", "training.csv")
 CACHE_SRC = os.path.join(dir_path, "language_src", "_cache")
 if not os.path.exists(CACHE_SRC):
     os.mkdir(CACHE_SRC)
 sys.path.append(os.path.dirname(dir_path))
-from global_vars import PYTHON_OHTER, log_level
+from global_vars import log_level
 logging.basicConfig(level=log_level)
 
 
@@ -262,7 +261,7 @@ def classify_text(keyword, max_num=3):
   # So, invoke the script to produce the desired cache file, from which to read the result
   filename = os.path.join(CACHE_SRC, keyword)  
   if max_num>10:
-    bound = max_num//5
+    bound = int(math.sqrt(max_num))
     bound = min(bound,10)
     variants = get_text_label_variant(keyword, find_child=True, max_num=bound-1)
   else:
@@ -401,7 +400,6 @@ def analyze_syntax(tag, force_new=False, max_num=1):
     # NOTE: now only uses the first entity because that is guarateened to succeed
     res = generate_text(special_line.split(",")[1], num_outputs=max_num - i)
     for each_res in res:
-      # print(len(res))
       filename = os.path.join(CACHE_SRC, "analyze_syntax_" + tag + "_{}.txt".format(i))
       with open(filename, "w", encoding='utf8') as fd:
         fd.write(each_res)

@@ -2,11 +2,12 @@ import os, sys
 import subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
-from icrawler.builtin import GoogleImageCrawler, BaiduImageCrawler, BingImageCrawler 
+from icrawler.builtin import BingImageCrawler 
 import csv
 from time import gmtime, strftime
 import urllib.request
 from bs4 import BeautifulSoup
+import math
 
 from numpy.lib.type_check import imag
 
@@ -111,15 +112,12 @@ def query_record(query):
       db.close()
       return row
 
-  # If cannot find exact match, TODO find the one with the highest value
-  # (we know that this exists in DB)
   db.seek(0)
   next(csv_reader)
   for row in csv_reader:
     if row[highest_index + 1] == 'VERY_LIKELY':
       db.close()
       return row
-    # NOTE Somehow I cannot find sorrow pic with VERY_LIKELY output. Using this for now.
     elif highest_index == 3 and row[highest_index + 1] == 'LIKELY':
       db.close()
       return row
@@ -389,7 +387,7 @@ def image_classification(label, max_num=2):
   
   logging.info("image_classification: searching images with keyword {}".format(label))
   if max_num>10:
-    bound = max_num//5
+    bound = int(math.sqrt(max_num))
     bound = min(bound,10)
     variants = [label] + get_image_label_variant(label, max_num=bound-1)
   else:

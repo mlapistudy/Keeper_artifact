@@ -1,6 +1,4 @@
 import os
-import csv
-import math
 import logging
 import wikipedia
 
