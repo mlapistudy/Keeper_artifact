@@ -1,21 +1,21 @@
 # Readme
+This is the artifact for our TOSEM paper "Keeper: Automated Testing and Fixing of Machine Learning Software".
 
 Keeper is a systematic testing tool for software that uses ML API. It is an extended work from our [ICSE 22](https://github.com/mlapistudy/ICSE2022_158) work.
 
-Our IDE plugin is also avaliable at [VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=ALERTProject.mlapitesting).
 
 ## How to install
 Please follow the instructions in  `REQUIREMENTS.md`
 
 ## How to use CMD version.
-It is under folder `testing_tool`. Please check `testing_tool/readme.md` for details.
+It is under folder `./testing_tool`. Please check `./testing_tool/readme.md` for details.
 
 If it shows a malloc error, please launch it in a seperate terminal outside the IDE.
 
 ## How to launch IDE plugin
-Open the **`Keeper/` folder** in VS Code. Please make sure it is not the parent/child folder of `Keeper/`, otherwise VS Code would not able to parse the project.
+Open the **`./Keeper/` folder** in VS Code. Please make sure it is not the parent/child folder of `Keeper/`, otherwise VS Code would not able to parse the project.
 
-Then select `src/extension.ts`. Click "run" -> "start debugging" on top menu or pressing F5. Then the plugin interface would appear in a new VS Code window. 
+Then select `./src/extension.ts`. Click "run" -> "start debugging" on top menu or pressing F5. Then the plugin interface would appear in a new VS Code window. 
 
 Then, set up environment and application prerequisites. This is the line that gets executed before any of our analysis file runs. Typically, one should include (1) export the google cloud credentials; (2) export the path to CVC4; (3) any other commands needed to activate a virtual environment (e.g. anaconda) for the particular python environment we require, etc. This can be done by going to the Settings in VS Code (details can be found on the VS Code documentations here), search for Mlapi-testing: Set Up Environment And Application Prerequisites, and modify the entry to include these. An example of including (1) and (2) is:
 
@@ -26,7 +26,7 @@ export GOOGLE_APPLICATION_CREDENTIALS='/path/to/your/google/credential.json'; ex
 ![Install from marketplace](demo/settings.png)
 
 
-We provide an example input in `plugin_example`. To use this example, please open this folder in the new VS Code window.
+We provide an example input in `./plugin_example`. To use this example, please open this folder in the new VS Code window.
 
 
 ## How to use the plugin interface
@@ -45,3 +45,7 @@ We provide an example input in `plugin_example`. To use this example, please ope
 
 ## GIF demo
 ![Install from marketplace](demo/demo-video.gif)
+
+
+## Paper result
+It is under folder `./paper_result`. Please check `./paper_result/readme.md` for details.
