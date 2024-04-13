@@ -1,7 +1,7 @@
 # Readme
 This is the artifact for our TOSEM paper "Keeper: Automated Testing and Fixing of Machine Learning Software".
 
-Keeper is a systematic testing tool for software that uses ML API. It is an extended work from our [ICSE 22](https://github.com/mlapistudy/ICSE2022_158) work.
+Keeper is a systematic testing and fixing tool for ML software. It is an extended work from our [ICSE 22](https://github.com/mlapistudy/ICSE2022_158) work.
 
 
 ## How to install
