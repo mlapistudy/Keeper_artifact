@@ -2,6 +2,10 @@
 
 This folder contains material and aggregated results of our user study with end-users.
 
+## Target population
+
+We recruited 100 participants through an online survey and Amazon Mechanical Turk. We set the recruitment criteria as (1) being more than 18 years old, (2) living in the United States, and (3) with more than 95\% MTurk Task Approval rate.
+
 ## Materials
 
 The preview of the survey is available at `./survey_preview.pdf`. Consent form is available at `./consent_form.pdf`

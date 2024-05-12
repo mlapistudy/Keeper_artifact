@@ -1,6 +1,6 @@
 # INSTALL
 
-
+We have not provided a virtual environment, as the CVC4 constraint solver has some problems on virtual machines and docker images. Instead, we provide a simple installation instruction.
 
 ## Python packages
 
@@ -45,6 +45,8 @@ python3 -m pip --version
 ```
 
 Please make sure `python3` is a valid command.
+
+We provide `requirements.txt` which includes python packages and explicit versioning information. However, we strongly recommand users who are not familiar with Python to use the following instructions.
 
 
 ### Install Google Cloud AI
@@ -101,7 +103,7 @@ python3 -m pip install inflact==6.0.2 --user
 ## CVC4 constraint solver
 It requires CVC4 (version 1.6) to do constrainint solving. Instructions are at `https://github.com/CVC4/CVC4/issues/1533`. The compiling might take over 10 minutes. Specifically,
 
-On Linux,
+**On Linux**,
 ```bash
 git clone https://github.com/CVC4/CVC4.git CVC4_python
 cd CVC4_python
@@ -127,7 +129,7 @@ python3 examples/SimpleVC.py
 ```
 
 
-On Mac
+**On Mac**,
 ```bash
 brew update
 brew install wget
@@ -167,11 +169,11 @@ Everytime before executing, run `export PYTHONPATH=/usr/local/share/pyshared/`
 ## Node.js
 Our IDE plugin is for VS Code. So it is implemented with Node.js.
 
-Install [VSCode](https://code.visualstudio.com).
+1. Install [VSCode](https://code.visualstudio.com).
 
-Install Node.js and `npm install -g yo generator-code`, following [VSCode official document](https://code.visualstudio.com/api/get-started/your-first-extension)
+2. Install Node.js and `npm install -g yo generator-code`, following [VSCode official document](https://code.visualstudio.com/api/get-started/your-first-extension)
 
-Install other packages:
+3. Install other packages:
 
 ```bash
 cd ide_plugin
